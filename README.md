@@ -1,2 +1,0 @@
-# yuppie-earn
-YuPPie
